@@ -2,21 +2,9 @@
 
 @section('content')
 <style>
-    .admin-dashboard {
-        background: linear-gradient(135deg, #1270F8 0%, #003380 100%);
-        min-height: 100vh;
-        padding: 20px 0;
-    }
+    .admin-dashboard { background: #f5f7fb; min-height: 100vh; padding: 24px 0; }
     
-    .stats-card {
-        background: white;
-        border-radius: 12px;
-        padding: 25px;
-        box-shadow: 0 8px 25px rgba(18, 112, 248, 0.15);
-        margin-bottom: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-left: 4px solid #1270F8;
-    }
+    .stats-card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 6px 18px rgba(18, 112, 248, 0.12); margin-bottom: 16px; border: 1px solid #e6efff; }
     
     .stats-card:hover {
         transform: translateY(-3px);
@@ -47,16 +35,7 @@
         border: 1px solid rgba(18, 112, 248, 0.1);
     }
     
-    .admin-card-header {
-        background: linear-gradient(135deg, #1270F8 0%, #003380 100%);
-        color: white;
-        padding: 20px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+    .admin-card-header { background: #0f172a; color: #fff; padding: 16px; font-weight: 600; font-size: 1rem; display: flex; align-items: center; justify-content: space-between; }
     
     .admin-card-body {
         padding: 0;
@@ -169,17 +148,7 @@
         margin-bottom: 15px;
     }
     
-    .dt-button {
-        background: linear-gradient(135deg, #1270F8, #003380) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 6px !important;
-        padding: 8px 16px !important;
-        font-size: 0.9rem !important;
-        font-weight: 500 !important;
-        margin-right: 8px !important;
-        transition: all 0.3s ease !important;
-    }
+    .dt-button { background: #1270F8 !important; color: white !important; border: none !important; border-radius: 6px !important; padding: 8px 16px !important; font-size: 0.9rem !important; font-weight: 500 !important; margin-right: 8px !important; transition: all 0.2s ease !important; }
     
     .dt-button:hover {
         transform: translateY(-2px) !important;
@@ -208,7 +177,7 @@
 
 <div class="admin-dashboard">
     <div class="container">
-        <h1 class="page-title">Admin Dashboard</h1>
+        <h1 class="page-title" style="color:#0f172a; text-shadow:none;">Admin Dashboard</h1>
         
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -250,12 +219,36 @@
             </div>
         </div>
 
+        <div class="admin-card">
+            <div class="admin-card-header">
+                <div>
+                    <i class="fas fa-chart-bar me-2"></i>Monthly Statistics
+                </div>
+            </div>
+            <div class="admin-card-body">
+                <div class="row g-0 p-3">
+                    <div class="col-md-6 mb-3">
+                        <div class="p-3" style="background:#f8f9fa; border-radius:12px;">
+                            <div class="mb-2 fw-semibold">Total Users per Month</div>
+                            <canvas id="usersPerMonthChart" height="140"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="p-3" style="background:#f8f9fa; border-radius:12px;">
+                            <div class="mb-2 fw-semibold">Total Referred Users per Month</div>
+                            <canvas id="referredPerMonthChart" height="140"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @php
             $bannerPath = null;
             foreach (['jpg','jpeg','png','webp'] as $ext) {
                 $candidate = public_path('assets/images/referral-banner.' . $ext);
                 if (file_exists($candidate)) {
-                 $bannerPath = 'https://capitalxtendfx.com/gettingstarted/public/assets/images/referral-banner.'.$ext;
+                 $bannerPath = config('app.base_url').'/public/assets/images/referral-banner.'.$ext;
                                
                     break;
                 }
@@ -355,14 +348,16 @@
                                 <td>{{ $user->created_at->format('M d, Y') }}</td>
                                 <td>
                                     <div class="d-flex gap-1">
+                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary btn-sm" title="View / Manage">
+                                            <i class="fas fa-user-cog"></i> Manage
+                                        </a>
                                         <a href="{{ route('admin.user-referrals', $user->id) }}" class="btn btn-info btn-sm" title="View Referrals">
-                                            <i class="fas fa-users"></i>View Referrals
+                                            <i class="fas fa-users"></i> Referrals
                                         </a>
                                         @if($user->id !== auth()->id())
                                             <form method="POST" action="{{ route('admin.users.toggle-admin', $user) }}" style="display: inline;">
                                                 @csrf
-                                                <button type="submit" class="btn btn-admin-toggle btn-sm" 
-                                                        onclick="return confirm('Are you sure you want to change admin privileges for this user?')">
+                                                <button type="submit" class="btn btn-admin-toggle btn-sm">
                                                     {{ $user->is_admin ? 'Remove Admin' : 'Make Admin' }}
                                                 </button>
                                             </form>
@@ -391,6 +386,7 @@
 <script src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.bootstrap5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.3.3/js/buttons.html5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <script>
 $(document).ready(function() {
@@ -430,5 +426,36 @@ $(document).ready(function() {
         ]
     });
 });
+
+const monthLabels = <?php echo json_encode($monthLabels ?? []); ?>;
+const usersSeries = <?php echo json_encode($usersPerMonth ?? []); ?>;
+const referredSeries = <?php echo json_encode($referredPerMonth ?? []); ?>;
+const commonOptions = {
+    type: 'bar',
+    options: {
+        scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } },
+        plugins: { legend: { display: false } }
+    }
+};
+const usersCtx = document.getElementById('usersPerMonthChart');
+if (usersCtx && window.Chart) {
+    new Chart(usersCtx, {
+        ...commonOptions,
+        data: {
+            labels: monthLabels,
+            datasets: [{ data: usersSeries, backgroundColor: 'rgba(18,112,248,.35)', borderColor: '#1270F8', borderWidth: 2, borderRadius: 6 }]
+        }
+    });
+}
+const referredCtx = document.getElementById('referredPerMonthChart');
+if (referredCtx && window.Chart) {
+    new Chart(referredCtx, {
+        ...commonOptions,
+        data: {
+            labels: monthLabels,
+            datasets: [{ data: referredSeries, backgroundColor: 'rgba(32,201,151,.35)', borderColor: '#20c997', borderWidth: 2, borderRadius: 6 }]
+        }
+    });
+}
 </script>
 @endsection

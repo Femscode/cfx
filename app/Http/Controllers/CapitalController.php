@@ -15,6 +15,7 @@ class CapitalController extends Controller
     {
 
         $data['slug'] = $slug;
+        $data['referrer'] = User::where('referral_link', $slug)->first();
         return view('ref_page', $data);
     }
     public function saveRef(Request $request)
@@ -66,7 +67,7 @@ class CapitalController extends Controller
             $data['user'] = User::where('referral_link', $slug)->first();
             return view('nextstep', $data);
         } else {
-            return redirect('https://www.capitalxtendfx.com');
+            return redirect(config('app.base_url'));
         }
     }
 }

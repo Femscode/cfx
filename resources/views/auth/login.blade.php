@@ -137,7 +137,7 @@
                                     {{ __('Login') }}
                                 </button><br>
 
-                               {{ __('Yet to have an account?') }}<a href="https://www.capitalxtendfx.com/gettingstarted/register"> Create Account </a>
+                               {{ __('Yet to have an account?') }}<a href="{{ config('app.base_url') }}/register"> Create Account </a>
                             </div>
                         </div>
                     </form>

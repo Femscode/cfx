@@ -7,311 +7,108 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        min-height: 100vh;
-        padding: 20px 10px;
-        font-family: 'Inter', sans-serif;
-        color: #2d3748;
-    }
+    body { background: linear-gradient(135deg, #FDFDFC 0%, #f2f5ff 100%); min-height: 100vh; padding: 24px 12px; font-family: 'Inter', sans-serif; color: #1f2937; }
 
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-    }
+    .container { max-width: 1050px; margin: 0 auto; }
 
-    .card {
-        border: none;
-        border-radius: 16px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+    .card { border: none; border-radius: 18px; box-shadow: 0 8px 28px rgba(18, 112, 248, 0.12); background: #fff; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease; }
 
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(18, 112, 248, 0.18); }
 
-    .card-header {
-        background: linear-gradient(135deg, #4a5568, #2d3748);
-        color: #ffffff;
-        text-align: center;
-        font-weight: 600;
-        padding: 1rem;
-        border-radius: 16px 16px 0 0;
-        font-size: 1.1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    .card-header { background: linear-gradient(135deg, #1270F8 0%, #003380 100%); color: #fff; font-weight: 600; padding: 1.25rem; border-radius: 18px 18px 0 0; font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
 
-    .card-body {
-        padding: 1.5rem;
-    }
+    .card-body { padding: 1.5rem; }
 
-    .referral-link-container {
-        margin-bottom: 1.5rem;
-        background: #f7fafc;
-        padding: 1rem;
-        border-radius: 12px;
-        transition: transform 0.3s ease;
-    }
+    .referral-link-container { margin-bottom: 1.25rem; background: #f8fbff; padding: 1rem; border-radius: 14px; border: 1px solid #e6efff; transition: transform .25s ease, box-shadow .25s ease; }
 
-    .referral-link-container:hover {
-        transform: translateY(-3px);
-    }
+    .referral-link-container:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(18,112,248,0.12); }
 
-    .form-label {
-        font-weight: 500;
-        color: #4a5568;
-        margin-top: 0.5rem;
-        margin-bottom :0em !important;
-        display: block;
-        font-size: 0.9rem;
-    }
+    .form-label { font-weight: 600; color: #0f172a; margin-top: .25rem; margin-bottom: .5rem !important; display: block; font-size: .95rem; }
 
-    .form-control {
-        border-radius: 10px;
-        border: 1px solid #e2e8f0;
-        padding: 10px;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        background: #fff;
-        width: 100%;
-    }
+    .form-control { border-radius: 12px; border: 1px solid #dbe7ff; padding: 10px; font-size: .95rem; transition: all .25s ease; background: #fff; width: 100%; }
 
-    .form-control:focus {
-        border-color: #3182ce;
-        box-shadow: 0 0 10px rgba(49, 130, 206, 0.2);
-        outline: none;
-    }
+    .form-control:focus { border-color: #1270F8; box-shadow: 0 0 0 4px rgba(18,112,248,.12); outline: none; }
 
-    .input-group {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
+    .input-group { display: flex; gap: 10px; flex-wrap: wrap; }
 
-    .btn {
-        border-radius: 10px;
-        padding: 8px 16px;
-        font-weight: 500;
-        font-size: 0.85rem;
-        transition: all 0.3s ease;
-        touch-action: manipulation;
-    }
+    .btn { border-radius: 12px; padding: 9px 16px; font-weight: 600; font-size: .9rem; transition: all .2s ease; touch-action: manipulation; }
 
-    .btn-success {
-        background: #38a169;
-        color: white;
-        border: none;
-    }
+    .btn-success { background: linear-gradient(135deg,#1bb973,#09914f); color: #fff; border: none; }
 
-    .btn-success:hover {
-        background: #2f855a;
-        transform: translateY(-2px);
-    }
+    .btn-success:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(27,185,115,.35); }
 
-    .btn-copy {
-        background: #3182ce;
-        color: white;
-        border: none;
-    }
+    .btn-copy { background: linear-gradient(135deg,#1270F8,#003380); color: #fff; border: none; }
 
-    .btn-copy:hover {
-        background: #2b6cb0;
-        transform: translateY(-2px);
-    }
+    .btn-copy:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(18,112,248,.35); }
 
-    .btn-message {
-        background: #38a169;
-        color: white;
-        border: none;
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
+    .btn-message { background: #38a169; color: #fff; border: none; padding: 6px 12px; font-size: .85rem; }
 
-    .btn-message:hover {
-        background: #2f855a;
-        transform: translateY(-2px);
-    }
+    .btn-message:hover { transform: translateY(-2px); }
 
-    .btn-danger {
-        background: #e53e3e;
-        color: white;
-        border: none;
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
+    .btn-danger { background: linear-gradient(135deg,#f53b57,#c82136); color: #fff; border: none; padding: 6px 12px; font-size: .85rem; }
 
-    .btn-danger:hover {
-        background: #c53030;
-        transform: translateY(-2px);
-    }
+    .btn-danger:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(245,59,87,.35); }
 
-    .table {
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        margin-top: 1rem;
-        font-size: 0.85rem;
-    }
+    .table { background: #fff; border-radius: 14px; overflow: hidden; margin-top: 1rem; font-size: .9rem; }
 
-    .table thead th {
-        background: #edf2f7;
-        color: #2d3748;
-        font-weight: 600;
-        border-bottom: 2px solid #e2e8f0;
-        padding: 0.75rem;
-    }
+    .table thead th { background: linear-gradient(135deg, #f5f9ff, #eef6ff); color: #0f172a; font-weight: 700; border-bottom: 2px solid #e6efff; padding: .8rem; }
 
-    .table tbody tr {
-        transition: background 0.2s ease;
-    }
+    .table tbody tr { transition: background .2s ease; }
 
-    .table tbody tr:hover {
-        background: #f7fafc;
-    }
+    .table tbody tr:hover { background: #f8fbff; }
 
-    .alert-success {
-        background: #e6fffa;
-        border: 1px solid #b2f5ea;
-        color: #2c7a7b;
-        border-radius: 10px;
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-        font-size: 0.85rem;
-    }
+    .alert-success { background: linear-gradient(135deg,#e7fff4,#d6fff0); border: 1px solid #b2f5ea; color: #0f5132; border-radius: 12px; padding: .8rem; margin-bottom: 1rem; font-size: .9rem; }
 
-    .tutorial-link-box {
-        background: #edf2f7;
-        padding: 1rem;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 1.5rem;
-        transition: transform 0.3s ease;
-        flex-wrap: wrap;
-    }
+    .section-title { font-weight: 700; color: #0f172a; margin-bottom: .75rem; }
 
-    .tutorial-link-box:hover {
-        transform: translateY(-3px);
-    }
+    .stat-card { background: linear-gradient(135deg,#ffffff,#f6f9ff); border: 1px solid #e6efff; border-radius: 14px; padding: 16px; box-shadow: 0 8px 22px rgba(18,112,248,.08); transition: transform .2s ease, box-shadow .2s ease; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(18,112,248,.12); }
+    .stat-number { font-size: 2rem; font-weight: 800; color: #003380; }
+    .stat-label { font-size: .85rem; color: #64748b; letter-spacing: .5px; text-transform: uppercase; }
 
-    .tutorial-link-box a {
-        color: #3182ce;
-        text-decoration: none;
-        font-weight: 500;
-        word-break: break-all;
-    }
+    .link-card { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
 
-    .tutorial-link-box a:hover {
-        color: #2b6cb0;
-        text-decoration: underline;
-    }
+    .banner-img { max-height: 240px; object-fit: cover; width: 100%; border-radius: 12px; border: 1px solid #e6efff; }
 
     /* Mobile-specific styles */
     @media (max-width: 768px) {
-        body {
-            padding: 15px 10px;
-        }
+        body { padding: 15px 10px; }
 
-        .container {
-            max-width: 100%;
-        }
+        .container { max-width: 100%; }
 
-        .card {
-            margin: 0;
-            border-radius: 12px;
-        }
+        .card { margin: 0; border-radius: 14px; }
 
-        .card-header {
-            flex-direction: column;
-            gap: 12px;
-            padding: 0.75rem;
-            font-size: 1rem;
-        }
+        .card-header { flex-direction: column; gap: 12px; padding: .9rem; font-size: 1rem; }
 
-        .card-body {
-            padding: 1rem;
-        }
+        .card-body { padding: 1rem; }
 
-        .referral-link-container {
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-        }
+        .referral-link-container { padding: .8rem; margin-bottom: 1rem; }
 
-        .input-group {
-            flex-direction: column;
-        }
+        .input-group { flex-direction: column; }
 
-        .input-group .form-control,
-        .input-group .btn {
-            width: 100%;
-            margin-top: 8px;
-        }
+        .input-group .form-control, .input-group .btn { width: 100%; margin-top: 8px; }
 
-        .input-group .btn {
-            padding: 10px;
-            font-size: 0.9rem;
-        }
+        .input-group .btn { padding: 10px; font-size: .9rem; }
 
-        .form-control {
-            font-size: 0.85rem;
-            padding: 8px;
-        }
+        .form-control { font-size: .85rem; padding: 8px; }
 
-        .form-label {
-            font-size: 0.85rem;
-        }
+        .form-label { font-size: .85rem; }
 
-        .tutorial-link-box {
-            flex-direction: column;
-            text-align: center;
-            gap: 10px;
-            padding: 0.75rem;
-        }
+        .link-card { flex-direction: column; text-align: center; gap: 10px; }
 
-        .table-responsive {
-            border-radius: 12px;
-            overflow-x: auto;
-        }
+        .table-responsive { border-radius: 12px; overflow-x: auto; }
 
-        .table {
-            font-size: 0.8rem;
-        }
+        .table { font-size: .85rem; }
 
-        .table thead th {
-            padding: 0.5rem;
-        }
+        .table thead th { padding: .6rem; }
 
-        .table tbody td {
-            padding: 0.5rem;
-        }
+        .table tbody td { padding: .6rem; }
     }
 
     @media (max-width: 576px) {
-        .card-header {
-            font-size: 0.95rem;
-        }
-
-        .btn {
-            font-size: 0.8rem;
-            padding: 8px 12px;
-        }
-
-        .alert-success {
-            font-size: 0.8rem;
-            padding: 0.5rem;
-        }
-
-        .tutorial-link-box a {
-            postęp: 0.85rem;
-        }
+        .card-header { font-size: .95rem; }
+        .btn { font-size: .85rem; padding: 8px 12px; }
+        .alert-success { font-size: .85rem; padding: .5rem; }
     }
 </style>
 
@@ -339,35 +136,95 @@
                     </div>
                     @endif
 
+                    <div class="row mb-4">
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <div class="stat-card text-center">
+                                <div class="stat-number">{{ $referred_count }}</div>
+                                <div class="stat-label">Total Referrals</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 mb-3">
+                            <div class="stat-card text-center">
+                                <div class="stat-number">{{ auth()->user()->created_at ? auth()->user()->created_at->format('M Y') : '—' }}</div>
+                                <div class="stat-label">Member Since</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="referral-link-container">
-                        <label for="referral-link" class="form-label">{{ __('Your Landing Page') }} <span class="text-danger">{{ __('- For new users to register') }}</span></label>
-                        <div class="input-group">
-                            <input id="referral-link" type="text" class="form-control" value="https://www.capitalxtendfx.com/gettingstarted/{{ auth()->user()->referral_link ?? '' }}" readonly>
+                        <span class="section-title">Referrals per Month</span>
+                        <canvas id="referralsChart" height="120"></canvas>
+                    </div>
+
+                    <div class="referral-link-container">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="section-title">Your Landing Page</span>
+                            <span class="text-danger">For new users to register</span>
+                        </div>
+                        <div class="link-card">
+                            <div class="input-group">
+                                <input id="referral-link" type="text" class="form-control" value="{{ config('app.base_url') }}/{{ auth()->user()->referral_link ?? '' }}" readonly>
+                            </div>
                             <button class="btn btn-copy" type="button" onclick="copyReferralLink()">Copy</button>
                         </div>
                     </div>
 
-                    <div class="tutorial-link-box">
-                        <div>
-                            <span class="font-semibold">{{ __('Your Tutorial Page Link') }}:</span><br>
-                            <a href="https://www.capitalxtendfx.com/gettingstarted/nextstep/{{ auth()->user()->referral_link }}"
+                    <div class="referral-link-container">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="section-title">Your Tutorial Page Link</span>
+                        </div>
+                        <div class="link-card">
+                            <a href="{{ config('app.base_url') }}/nextstep/{{ auth()->user()->referral_link }}"
                                id="tutorialLink"
                                class="text-blue-600 hover:underline">
-                                https://www.capitalxtendfx.com/gettingstarted/nextstep/{{ auth()->user()->referral_link }}
+                                {{ config('app.base_url') }}/nextstep/{{ auth()->user()->referral_link }}
                             </a>
+                            <button onclick="copyTutorialLink()" class="btn btn-copy" title="Copy to clipboard">
+                                <i class="fa fa-copy fa-lg"></i>
+                            </button>
                         </div>
-                        <button onclick="copyTutorialLink()" class="btn btn-copy" title="Copy to clipboard">
-                            <i class="fa fa-copy fa-lg"></i>
-                        </button>
+                    </div>
+
+                    @php
+                        $userBanner = null;
+                        foreach (['jpg','jpeg','png','webp'] as $ext) {
+                            $candidate = public_path('assets/images/user-banners/' . (auth()->id()) . '.' . $ext);
+                            if (file_exists($candidate)) {
+                                $userBanner = config('app.base_url').'/public/assets/images/user-banners/' . auth()->id() . '.' . $ext;
+                                break;
+                            }
+                        }
+                    @endphp
+                    <div class="referral-link-container">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 mb-3">
+                                <span class="section-title">Your Referral Page Banner</span>
+                                @if($userBanner)
+                                    <img src="{{ $userBanner }}" alt="Your Banner" class="banner-img">
+                                @else
+                                    <div class="text-muted">No personal banner uploaded yet.</div>
+                                @endif
+                            </div>
+                            <div class="col-md-6">
+                                <form method="POST" action="{{ route('updateBanner') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    <label class="form-label">Upload New Banner</label>
+                                    <input type="file" name="banner" class="form-control" accept="image/jpeg,image/png,image/webp" required>
+                                    <div class="form-text">JPG, JPEG, PNG, WEBP up to 5MB.</div>
+                                    <button class="btn btn-success mt-2" type="submit">Save Banner</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="referral-link-container">
+                        <span class="section-title">Your Referral Settings</span>
                        
                         <form method="POST" action="{{ route('updateRefLink') }}">@csrf
                         <label for="registration-link" class="form-label">{{ __('Your CapitalX Referral Link') }}</label>
                             <div class="input-group">
                                  
-                                <input name="registration_link" id="registration-link" type="text" class="form-control" value="{{ auth()->user()->registration_link ?? 'https://www.capitalxtendfx.com/register' }}">
+                                <input name="registration_link" id="registration-link" type="text" class="form-control" value="{{ auth()->user()->registration_link ?? (config('app.base_url').'/register') }}">
                                 
                                 
                             </div>
@@ -388,33 +245,11 @@
                         </form>
                     </div>
 
-                    <div class="table-responsive">
-                        <table id="referralsTable" class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th>{{ __('Name') }}</th>
-                                    <th>{{ __('Email') }}</th>
-                                    <th>{{ __('Phone') }}</th>
-                                    <th>{{ __('Date Joined') }}</th>
-                                    <th>{{ __('Action') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($referred_users as $user)
-                                <tr>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->phone }}</td>
-                                    <td>{{$user->created_at->format('M d, Y H:i')}}</td>
-                                    <td>
-                                        <a href="https://wa.me/234{{ substr($user->phone, 1) }}" class="btn btn-message">
-                                            {{ __('Message') }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                    <div class="referral-link-container">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="section-title">Manage Referrals</span>
+                            <a href="{{ route('user.referrals') }}" class="btn btn-copy">Open Referrals Page</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -423,25 +258,38 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#referralsTable').DataTable({
-            pageLength: 10,
-            lengthChange: false,
-            searching: true,
-            ordering: false,
-            info: false,
-            language: {
-                search: "",
-                searchPlaceholder: "Search referrals..."
-            },
-            responsive: true
+    const ctx = document.getElementById('referralsChart');
+    if (ctx) {
+        const data = {
+            labels: <?php echo json_encode($chart_labels); ?>,
+            datasets: [{
+                label: 'Referrals',
+                data: <?php echo json_encode($chart_series); ?>,
+                backgroundColor: 'rgba(18, 112, 248, 0.35)',
+                borderColor: '#1270F8',
+                borderWidth: 2,
+                borderRadius: 6,
+            }]
+        };
+        new Chart(ctx, {
+            type: 'bar',
+            data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { stepSize: 1 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
         });
-    });
+    }
 
     function copyReferralLink() {
         const copyText = document.getElementById("referral-link");

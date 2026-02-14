@@ -116,12 +116,23 @@
 
                     @php
                         $bannerPath = null;
+                        if(isset($referrer) && $referrer) {
+                            foreach (['jpg','jpeg','png','webp'] as $ext) {
+                                $userCandidate = public_path('assets/images/user-banners/' . $referrer->id . '.' . $ext);
+                                if (file_exists($userCandidate)) {
+                                    $bannerPath = config('app.base_url').'/public/assets/images/user-banners/'.$referrer->id.'.'.$ext;
+                                    break;
+                                }
+                            }
+                        }
+                        if(!$bannerPath) {
                         foreach (['jpg','jpeg','png','webp'] as $ext) {
                             $candidate = public_path('assets/images/referral-banner.' . $ext);
                             if (file_exists($candidate)) {
-                                $bannerPath = 'https://capitalxtendfx.com/gettingstarted/public/assets/images/referral-banner.'.$ext;
+                                $bannerPath = config('app.base_url').'/public/assets/images/referral-banner.'.$ext;
                                 break;
                             }
+                        }
                         }
                     @endphp
                     <img src="{{ $bannerPath ?? url('assets/images/discover.jpeg') }}" class="w-full h-auto" />

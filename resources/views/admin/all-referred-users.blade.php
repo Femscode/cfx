@@ -107,7 +107,7 @@
                                     <td>{{ $referredUser->created_at->format('M d, Y H:i') }}</td>
                                     <td>
                                         <a href="https://wa.me/234{{ substr($referredUser->phone, 1)}}" class="btn btn-success btn-sm">Message User</a>
-                                        <a href="https://www.capitalxtendfx.com/gettingstarted/admin/delete-referred-user/{{ $referredUser->id }}" class="btn btn-danger btn-sm "
+                                        <a href="{{ config('app.base_url') }}/admin/delete-referred-user/{{ $referredUser->id }}" class="btn btn-danger btn-sm "
                                             
                                             onclick="return confirm('Are you sure you want to delete {{ $referredUser->name }}?');">
                                             <i class="fas fa-trash"></i> Delete
