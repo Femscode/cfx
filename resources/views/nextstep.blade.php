@@ -368,7 +368,7 @@
           </div>
           <h3 class="text-xl font-semibold text-primary mb-3">Start Making Money from Forex Without Trading</h3>
           <p class="text-gray-600 mb-4">Discover how to earn by automatically copying expert traders.</p>
-          <a href="https://wa.me/234{{ substr($user->phone, 1) ?? 'https://wa.me/2347060818784'}}" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
+          <a href="https://wa.link/t1hryq" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
         </div>
         <div class="step-card bg-white p-8 rounded-xl shadow-lg">
           <span class="step-number">Step 12</span>
@@ -380,7 +380,7 @@
           </div>
           <h3 class="text-xl font-semibold text-primary mb-3">Expand Your Forex Business Using Digital Marketing Systems</h3>
           <p class="text-gray-600 mb-4">Learn how to grow your Forex business with effective digital marketing strategies.</p>
-          <a href="https://wa.me/234{{ substr($user->phone, 1) ?? 'https://wa.me/2347060818784'}}" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
+          <a href="https://wa.link/t1hryq" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
         </div>
        
         <div class="step-card bg-white p-8 rounded-xl shadow-lg">
@@ -393,7 +393,7 @@
           </div>
           <h3 class="text-xl font-semibold text-primary mb-3">Access High Probability Forex Signal Alerts</h3>
           <p class="text-gray-600 mb-4">Get high-probability Forex signal alerts delivered to your smartphone.</p>
-          <a href="https://wa.me/234{{ substr($user->phone, 1) ?? 'https://wa.me/2347060818784'}}" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
+          <a href="https://wa.link/t1hryq" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
         </div>
         <div class="step-card bg-white p-8 rounded-xl shadow-lg">
           <span class="step-number">Step 14</span>
@@ -405,7 +405,7 @@
           </div>
           <h3 class="text-xl font-semibold text-primary mb-3">Trade Like an Institution with Advanced Tools</h3>
           <p class="text-gray-600 mb-4">Learn to trade using Order Block Indicator, Smart Trade Manager, and Sniper Robot AI.</p>
-          <a href="https://wa.me/234{{ substr($user->phone, 1) ?? 'https://wa.me/2347060818784'}}" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
+          <a href="https://wa.link/t1hryq" class="inline-block bg-accent text-white px-6 py-3 rounded-lg hover:bg-primary transition font-medium">Join the Premium Group</a>
         </div>
       </div>
     </div>

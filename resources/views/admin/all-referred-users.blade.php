@@ -66,12 +66,12 @@
                         <table id="allReferredUsersTable" class="table table-striped table-bordered">
                             <thead class="thead-dark">
                                 <tr>
-                                    <th>ID</th>
+                                    <!--<th>ID</th>-->
                                     <th>Referred User Name</th>
                                     <th>Referred User Email</th>
+                                    <th>Referred User Phone</th>
                                     <th>Referrer Name</th>
                                     <th>Referrer Email</th>
-                                    <th>Referral Link</th>
                                     <th>Referred Date</th>
                                     <th>Actions</th>
                                 </tr>
@@ -79,9 +79,10 @@
                             <tbody>
                                 @foreach($allReferredUsers as $referredUser)
                                 <tr>
-                                    <td>{{ $referredUser->id }}</td>
+                                    <!--<td>{{ $referredUser->id }}</td>-->
                                     <td>{{ $referredUser->name }}</td>
                                     <td>{{ $referredUser->email }}</td>
+                                     <td>{{ $referredUser->phone }}</td>
                                     <td>
                                         @if($referredUser->referrer)
                                         {{ $referredUser->referrer->name }}
@@ -96,16 +97,17 @@
                                         <span class="text-muted">Unknown</span>
                                         @endif
                                     </td>
-                                    <td>
-                                        @if($referredUser->referrer)
-                                        <code>{{ $referredUser->referrer->referral_link }}</code>
-                                        @else
-                                        <span class="text-muted">N/A</span>
-                                        @endif
-                                    </td>
+                                    <!--<td>-->
+                                    <!--    @if($referredUser->referrer)-->
+                                    <!--    <code>{{ $referredUser->referrer->referral_link }}</code>-->
+                                    <!--    @else-->
+                                    <!--    <span class="text-muted">N/A</span>-->
+                                    <!--    @endif-->
+                                    <!--</td>-->
                                     <td>{{ $referredUser->created_at->format('M d, Y H:i') }}</td>
                                     <td>
-                                        <a href="/admin/delete-referred-user/{{ $referredUser->id }}" class="btn btn-danger btn-sm "
+                                        <a href="https://wa.me/234{{ substr($referredUser->phone, 1)}}" class="btn btn-success btn-sm">Message User</a>
+                                        <a href="https://www.capitalxtendfx.com/gettingstarted/admin/delete-referred-user/{{ $referredUser->id }}" class="btn btn-danger btn-sm "
                                             
                                             onclick="return confirm('Are you sure you want to delete {{ $referredUser->name }}?');">
                                             <i class="fas fa-trash"></i> Delete
@@ -147,7 +149,7 @@
                     className: 'btn btn-success btn-sm',
                     title: 'All Referred Users - ' + new Date().toISOString().split('T')[0],
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6] // Export all columns except Actions
+                        columns: [0, 1, 2, 3, 4, 5] // Export all columns except Actions
                     }
                 },
                 {
@@ -155,7 +157,7 @@
                     text: '<i class="fas fa-copy"></i> Copy',
                     className: 'btn btn-info btn-sm',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6] // Copy all columns except Actions
+                        columns: [0, 1, 2, 3, 4, 5] // Copy all columns except Actions
                     }
                 }
             ],
@@ -169,7 +171,7 @@
                 [6, 'desc']
             ], // Sort by referred date (newest first)
             columnDefs: [{
-                targets: 6, // Referred Date column
+                targets: 5, // Referred Date column
                 type: "date"
             }],
             language: {

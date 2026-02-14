@@ -23,4 +23,5 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/all-referred-users', [App\Http\Controllers\AdminController::class, 'allReferredUsers'])->name('all-referred-users');
     Route::any('/delete-referred-user/{id}', [App\Http\Controllers\AdminController::class, 'deleteReferredUser'])->name('delete-referred-user');
     Route::post('/banner', [App\Http\Controllers\AdminController::class, 'updateBanner'])->name('banner.update');
+
 });

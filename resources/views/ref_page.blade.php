@@ -119,7 +119,7 @@
                         foreach (['jpg','jpeg','png','webp'] as $ext) {
                             $candidate = public_path('assets/images/referral-banner.' . $ext);
                             if (file_exists($candidate)) {
-                                $bannerPath = asset('assets/images/referral-banner.' . $ext);
+                                $bannerPath = 'https://capitalxtendfx.com/gettingstarted/public/assets/images/referral-banner.'.$ext;
                                 break;
                             }
                         }

@@ -395,6 +395,7 @@
                                     <th>{{ __('Name') }}</th>
                                     <th>{{ __('Email') }}</th>
                                     <th>{{ __('Phone') }}</th>
+                                    <th>{{ __('Date Joined') }}</th>
                                     <th>{{ __('Action') }}</th>
                                 </tr>
                             </thead>
@@ -404,6 +405,7 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
+                                    <td>{{$user->created_at->format('M d, Y H:i')}}</td>
                                     <td>
                                         <a href="https://wa.me/234{{ substr($user->phone, 1) }}" class="btn btn-message">
                                             {{ __('Message') }}

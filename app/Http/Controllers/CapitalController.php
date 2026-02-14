@@ -33,7 +33,9 @@ class CapitalController extends Controller
             ->first();
         if ($check) {
             $data['referral_id'] = $referral_id;
-            $data['user'] = User::where('referral_link', $referral_id)->first();
+            $data['user'] = $ref2 =  User::where('referral_link', $referral_id)->first();
+            $redirect_link = $ref2->whatsapp;
+            return redirect($redirect_link);
             return view('nextstep', $data);
         }
         $ref = ReferredUsers::create([
